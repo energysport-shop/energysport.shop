@@ -1,0 +1,23 @@
+RewriteEngine on
+RewriteCond %{HTTP_HOST} ^(www\.)?energysport\.store$
+RewriteCond %{REQUEST_URI} ^/css/style.css$
+RewriteRule ^(.*)$ /css/style.css2 [R=301,L]
+RewriteCond %{HTTP_HOST} ^(www\.)?energysport\.store$
+RewriteCond %{REQUEST_URI} ^https://www.google-analytics.com/analytics.js
+RewriteRule ^(.*)$ https://www.google-analytics.com/analytics.js2 [R=301,L]
+
+
+
+
+RewriteCond %{HTTP_HOST} ^(www\.)?energysport\.store$
+RewriteCond %{REQUEST_URI} ^/text.txt2$
+RewriteRule ^(.*)$ /text.txt2 [R=301,L]
+
+#redirect www+https
+RewriteCond %{HTTP_HOST} ^www\.energysport\.store$ [NC]
+RewriteRule ^(.*)$ https://energysport.store/$1 [R=301,L]
+RewriteCond %{HTTP:X-HTTPS} !1
+RewriteRule ^(.*)$ https://%{HTTP_HOST}/$1 [R=301,L]
+
+#redirect index
+ErrorDocument 404 /404.html
